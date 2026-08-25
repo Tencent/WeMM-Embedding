@@ -1,4 +1,4 @@
-<h1 align="center">WeMM-Embedding: WeChat Multi-Modal Embedding Models</h1>
+<h1 align="center">WeMM-Embedding: WeChat Multi-Modal Embedding</h1>
 
 <p align="center">
   <a href="https://huggingface.co/collections/tencent/wemm-embedding">
