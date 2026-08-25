@@ -1,20 +1,35 @@
-# WeMM-Embedding
+<h1 align="center">WeMM-Embedding: WeChat Multi-Modal Embedding Models</h1>
 
-[![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-yellow)](https://huggingface.co/collections/tencent/wemm-embedding)
-[![Technical Report](https://img.shields.io/badge/📄-Technical%20Report-red)](assets/WeMM_Embedding_tech_report.pdf)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+<p align="center">
+  <a href="https://huggingface.co/collections/tencent/wemm-embedding">
+    <img src="https://img.shields.io/badge/🤗-Hugging%20Face-yellow" alt="Hugging Face">
+  </a>
+  <a href="assets/WeMM_Embedding_tech_report.pdf">
+    <img src="https://img.shields.io/badge/📄-Technical%20Report-red" alt="Technical Report">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License">
+  </a>
+</p>
 
-WeMM-Embedding is a family of universal multimodal embedding models developed by the WeChat Vision team. It maps text, images, videos, visual documents, and interleaved multimodal inputs into a shared embedding space.
+WeMM-Embedding is a family of universal multimodal embedding models developed by the WeChat Vision team. It provides unified representations for text, images, videos, visual documents, and interleaved multimodal inputs, achieving state-of-the-art performance across multiple benchmarks covering diverse tasks and domains.
+
+<p align="center">
+  <a href="assets/performance-overview.pdf">
+    <img src="assets/performance-overview.png" width="100%" alt="WeMM-Embedding Performance Overview">
+  </a>
+</p>
 
 ## Model Zoo
 
 | Model | Matryoshka dimensions | Hugging Face |
 | --- | --- | --- |
-| WeMM-Embedding-2B | 64, 128, 256, 512, 1024, 2048 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-2B) |
-| WeMM-Embedding-4B | 64, 128, 256, 512, 1024, 2560 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-4B) |
-| WeMM-Embedding-9B | 64, 128, 256, 512, 1024, 2048, 4096 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-9B) |
+| WeMM-Embedding-2B | `64, 128, 256, 512, 1024, 2048` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-2B) |
+| WeMM-Embedding-4B | `64, 128, 256, 512, 1024, 2560` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-4B) |
+| WeMM-Embedding-9B | `64, 128, 256, 512, 1024, 2048, 4096` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-9B) |
 
-All models use last-token pooling at a dedicated `<embedding>` token and return L2-normalized embeddings. Audio input is not supported.
+All models support text, images, videos, visual documents, and interleaved multimodal inputs. Embeddings are obtained from the last-layer hidden state at the dedicated `<embedding>` token position, followed by L2 normalization. Audio input is not currently supported.
+
 
 ## Installation
 
