@@ -38,6 +38,7 @@ pip install -r requirements.txt
 ```
 
 ## Transformers
+We recommend using transformers==5.2.0 for inference and reproducibility, as newer versions may differ in preprocessing behavior.
 
 ```bash
 python examples/transformers_inference.py \
