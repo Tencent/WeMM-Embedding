@@ -29,7 +29,7 @@ python examples/transformers_inference.py \
   --model /path/to/WeMM-Embedding-2B \
   --image /path/to/image.jpg \
   --video /path/to/video.mp4 \
-  --dimension 256
+  --dimension 2048
 ```
 
 The example produces independent text, image, and video embeddings. Omit `--dimension` for the full embedding dimension.
@@ -41,7 +41,7 @@ python sentence_transformers_inference.py \
   --model /path/to/WeMM-Embedding-2B \
   --image /path/to/image.jpg \
   --video /path/to/video.mp4 \
-  --dimension 256
+  --dimension 2048
 ```
 
 The adapter uses `SentenceTransformer.encode()` for text, image, and video inputs. MRL is selected with `--dimension`.
