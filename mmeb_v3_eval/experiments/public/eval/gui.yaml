@@ -1,0 +1,55 @@
+GAE-GUIAct_q2t:
+    dataset_parser: gui
+    dataset_name: GAE-GUIAct_q2t
+    dataset_split: q2t
+    image_root: gui-tasks/GUIAct/
+    eval_type: global
+
+GAE-GUIAct_q2s:
+    dataset_parser: gui
+    dataset_name: GAE-GUIAct_q2s
+    dataset_split: q2s
+    image_root: gui-tasks/GUIAct/
+    eval_type: global
+
+GAE-GUIAct_s2s:
+    dataset_parser: gui
+    dataset_name: GAE-GUIAct_s2s
+    dataset_split: s2s
+    image_root: gui-tasks/GUIAct/
+    eval_type: global
+
+GAE-GUIAct_t2s:
+    dataset_parser: gui
+    dataset_name: GAE-GUIAct_t2s
+    dataset_split: t2s
+    image_root: gui-tasks/GUIAct/
+    eval_type: global
+
+GAE-Mind2Web_q2t:
+    dataset_parser: gui
+    dataset_name: GAE-Mind2Web_q2t
+    dataset_split: q2t
+    image_root: gui-tasks/Mind2Web/
+    eval_type: global
+
+GAE-Mind2Web_q2s:
+    dataset_parser: gui
+    dataset_name: GAE-Mind2Web_q2s
+    dataset_split: q2s
+    image_root: gui-tasks/Mind2Web/
+    eval_type: global
+
+GAE-Mind2Web_s2s:
+    dataset_parser: gui
+    dataset_name: GAE-Mind2Web_s2s
+    dataset_split: s2s
+    image_root: gui-tasks/Mind2Web/
+    eval_type: global
+
+GAE-Mind2Web_t2s:
+    dataset_parser: gui
+    dataset_name: GAE-Mind2Web_t2s
+    dataset_split: t2s
+    image_root: gui-tasks/Mind2Web/
+    eval_type: global

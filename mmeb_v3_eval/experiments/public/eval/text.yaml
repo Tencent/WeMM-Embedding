@@ -1,0 +1,543 @@
+text/BRIGHT/aops:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/aops
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/aops-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/aops-00000-of-00001.parquet
+text/BRIGHT/biology:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/biology
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/biology-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/biology-00000-of-00001.parquet
+text/BRIGHT/earth_science:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/earth_science
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/earth_science-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/earth_science-00000-of-00001.parquet
+text/BRIGHT/economics:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/economics
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/economics-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/economics-00000-of-00001.parquet
+text/BRIGHT/leetcode:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/leetcode
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/leetcode-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/leetcode-00000-of-00001.parquet
+text/BRIGHT/pony:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/pony
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/pony-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/pony-00000-of-00001.parquet
+text/BRIGHT/psychology:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/psychology
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/psychology-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/psychology-00000-of-00001.parquet
+text/BRIGHT/robotics:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/robotics
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/robotics-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/robotics-00000-of-00001.parquet
+text/BRIGHT/stackoverflow:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/stackoverflow
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/stackoverflow-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/stackoverflow-00000-of-00001.parquet
+text/BRIGHT/sustainable_living:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/sustainable_living
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/sustainable_living-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/sustainable_living-00000-of-00001.parquet
+text/BRIGHT/theoremqa_questions:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/theoremqa_questions
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/theoremqa_questions-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/theoremqa_questions-00000-of-00001.parquet
+text/BRIGHT/theoremqa_theorems:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: BRIGHT/theoremqa_theorems
+  eval_type: global
+
+  query_file: 
+    text-tasks/BRIGHT/examples/theoremqa_theorems-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/BRIGHT/documents/theoremqa_theorems-00000-of-00001.parquet
+text/FollowIR/core17-instructions:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: FollowIR/core17-instructions
+  eval_type: global
+
+  query_file: 
+    text-tasks/FollowIR/core17-instructions/queries.jsonl
+  candidate_file: 
+    text-tasks/FollowIR/core17-instructions/corpus.jsonl
+  qrels_file: 
+    text-tasks/FollowIR/core17-instructions/qrels_changed/test.tsv
+text/FollowIR/news21-instructions:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: FollowIR/news21-instructions
+  eval_type: global
+
+  query_file: 
+    text-tasks/FollowIR/news21-instructions/queries.jsonl
+  candidate_file: 
+    text-tasks/FollowIR/news21-instructions/corpus.jsonl
+  qrels_file: 
+    text-tasks/FollowIR/news21-instructions/qrels_changed/test.tsv
+text/FollowIR/robust04-instructions:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: FollowIR/robust04-instructions
+  eval_type: global
+
+  query_file: 
+    text-tasks/FollowIR/robust04-instructions/queries.jsonl
+  candidate_file: 
+    text-tasks/FollowIR/robust04-instructions/corpus.jsonl
+  qrels_file: 
+    text-tasks/FollowIR/robust04-instructions/qrels_changed/test.tsv
+text/InfoSearch/Audience-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Audience-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Audience-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Audience-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Audience-v1/qrels_changed/test.tsv
+text/InfoSearch/Clarity-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Clarity-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Clarity-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Clarity-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Clarity-v1/qrels_changed/test.tsv
+text/InfoSearch/Format-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Format-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Format-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Format-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Format-v1/qrels_changed/test.tsv
+text/InfoSearch/Language-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Language-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Language-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Language-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Language-v1/qrels_changed/test.tsv
+text/InfoSearch/Length-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Length-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Length-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Length-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Length-v1/qrels_changed/test.tsv
+text/InfoSearch/Source-v1:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: InfoSearch/Source-v1
+  eval_type: global
+
+  query_file: text-tasks/InfoSearch/Source-v1/queries.jsonl
+  candidate_file: text-tasks/InfoSearch/Source-v1/corpus.jsonl
+  qrels_file: 
+    text-tasks/InfoSearch/Source-v1/qrels_changed/test.tsv
+text/LongEmbed/2wikimqa:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/2wikimqa
+  eval_type: global
+
+  query_file: text-tasks/LongEmbed/2wikimqa/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/2wikimqa/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/2wikimqa/qrels.jsonl
+text/LongEmbed/narrativeqa:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/narrativeqa
+  eval_type: global
+
+  query_file: text-tasks/LongEmbed/narrativeqa/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/narrativeqa/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/narrativeqa/qrels.jsonl
+text/LongEmbed/needle:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/needle
+  eval_type: global
+
+  query_file: text-tasks/LongEmbed/needle/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/needle/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/needle/qrels.jsonl
+text/LongEmbed/passkey:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/passkey
+  eval_type: global
+
+  query_file: text-tasks/LongEmbed/passkey/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/passkey/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/passkey/qrels.jsonl
+text/LongEmbed/qmsum:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/qmsum
+  eval_type: global
+
+  query_file: text-tasks/LongEmbed/qmsum/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/qmsum/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/qmsum/qrels.jsonl
+text/LongEmbed/summ_screen_fd:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: LongEmbed/summ_screen_fd
+  eval_type: global
+
+  query_file: 
+    text-tasks/LongEmbed/summ_screen_fd/queries.jsonl
+  candidate_file: text-tasks/LongEmbed/summ_screen_fd/corpus.jsonl
+  qrels_file: text-tasks/LongEmbed/summ_screen_fd/qrels.jsonl
+text/MultiConIR/Books:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: MultiConIR/Books
+  eval_type: global
+
+  query_file: text-tasks/MultiConIR_v2/Books/queries.jsonl
+  candidate_file: text-tasks/MultiConIR_v2/Books/corpus.jsonl
+  qrels_file: text-tasks/MultiConIR_v2/Books/qrels.jsonl
+text/MultiConIR/Legal Document:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: MultiConIR/Legal Document
+  eval_type: global
+
+  query_file: text-tasks/MultiConIR_v2/Legal Document/queries.jsonl
+  candidate_file: text-tasks/MultiConIR_v2/Legal Document/corpus.jsonl
+  qrels_file: text-tasks/MultiConIR_v2/Legal Document/qrels.jsonl
+text/MultiConIR/Medical Case:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: 'MultiConIR/Medical Case'
+  eval_type: global
+
+  query_file: text-tasks/MultiConIR_v2/Medical Case/queries.jsonl
+  candidate_file: text-tasks/MultiConIR_v2/Medical Case/corpus.jsonl
+  qrels_file: text-tasks/MultiConIR_v2/Medical Case/qrels.jsonl
+text/MultiConIR/Movies:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: MultiConIR/Movies
+  eval_type: global
+
+  query_file: text-tasks/MultiConIR_v2/Movies/queries.jsonl
+  candidate_file: text-tasks/MultiConIR_v2/Movies/corpus.jsonl
+  qrels_file: text-tasks/MultiConIR_v2/Movies/qrels.jsonl
+text/MultiConIR/People:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: MultiConIR/People
+  eval_type: global
+
+  query_file: text-tasks/MultiConIR_v2/People/queries.jsonl
+  candidate_file: text-tasks/MultiConIR_v2/People/corpus.jsonl
+  qrels_file: text-tasks/MultiConIR_v2/People/qrels.jsonl
+text/NanoBEIR/NanoArguAna:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoArguAna
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoArguAna/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoArguAna/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoArguAna/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoClimateFEVER:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoClimateFEVER
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoClimateFEVER/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoClimateFEVER/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoClimateFEVER/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoDBPedia:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoDBPedia
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoDBPedia/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoDBPedia/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoDBPedia/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoFEVER:
+  dataset_parser: complex_text_retrieve
+  data_path: MMEB-V3/text-tasks
+  subset_name: NanoBEIR/NanoFEVER
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoFEVER/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoFEVER/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoFEVER/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoFiQA2018:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoFiQA2018
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoFiQA2018/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoFiQA2018/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoFiQA2018/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoHotpotQA:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoHotpotQA
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoHotpotQA/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoHotpotQA/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoHotpotQA/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoMSMARCO:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoMSMARCO
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoMSMARCO/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoMSMARCO/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoMSMARCO/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoNFCorpus:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoNFCorpus
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoNFCorpus/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoNFCorpus/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoNFCorpus/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoNQ:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoNQ
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoNQ/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoNQ/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoNQ/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoQuoraRetrieval:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: 'NanoBEIR/NanoQuoraRetrieval'
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoQuoraRetrieval/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoQuoraRetrieval/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoQuoraRetrieval/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoSCIDOCS:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoSCIDOCS
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoSCIDOCS/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoSCIDOCS/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoSCIDOCS/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoSciFact:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoSciFact
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoSciFact/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoSciFact/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoSciFact/qrels/train-00000-of-00001.parquet
+text/NanoBEIR/NanoTouche2020:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: NanoBEIR/NanoTouche2020
+  eval_type: global
+
+  query_file: 
+    text-tasks/NanoBEIR/NanoTouche2020/queries/train-00000-of-00001.parquet
+  candidate_file: 
+    text-tasks/NanoBEIR/NanoTouche2020/corpus/train-00000-of-00001.parquet
+  qrels_file: 
+    text-tasks/NanoBEIR/NanoTouche2020/qrels/train-00000-of-00001.parquet
+text/R2MED/Bioinformatics:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/Bioinformatics
+  eval_type: global
+
+  query_file: text-tasks/R2MED/Bioinformatics/query.jsonl
+  candidate_file: text-tasks/R2MED/Bioinformatics/corpus.jsonl
+  qrels_file: text-tasks/R2MED/Bioinformatics/qrels.jsonl
+text/R2MED/Biology:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/Biology
+  eval_type: global
+
+  query_file: text-tasks/R2MED/Biology/query.jsonl
+  candidate_file: text-tasks/R2MED/Biology/corpus.jsonl
+  qrels_file: text-tasks/R2MED/Biology/qrels.jsonl
+text/R2MED/IIYi-Clinical:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/IIYi-Clinical
+  eval_type: global
+
+  query_file: text-tasks/R2MED/IIYi-Clinical/query.jsonl
+  candidate_file: text-tasks/R2MED/IIYi-Clinical/corpus.jsonl
+  qrels_file: text-tasks/R2MED/IIYi-Clinical/qrels.jsonl
+text/R2MED/MedQA-Diag:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/MedQA-Diag
+  eval_type: global
+
+  query_file: text-tasks/R2MED/MedQA-Diag/query.jsonl
+  candidate_file: text-tasks/R2MED/MedQA-Diag/corpus.jsonl
+  qrels_file: text-tasks/R2MED/MedQA-Diag/qrels.jsonl
+text/R2MED/MedXpertQA-Exam:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/MedXpertQA-Exam
+  eval_type: global
+
+  query_file: text-tasks/R2MED/MedXpertQA-Exam/query.jsonl
+  candidate_file: text-tasks/R2MED/MedXpertQA-Exam/corpus.jsonl
+  qrels_file: text-tasks/R2MED/MedXpertQA-Exam/qrels.jsonl
+text/R2MED/Medical-Sciences:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/Medical-Sciences
+  eval_type: global
+
+  query_file: text-tasks/R2MED/Medical-Sciences/query.jsonl
+  candidate_file: text-tasks/R2MED/Medical-Sciences/corpus.jsonl
+  qrels_file: text-tasks/R2MED/Medical-Sciences/qrels.jsonl
+text/R2MED/PMC-Clinical:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/PMC-Clinical
+  eval_type: global
+
+  query_file: text-tasks/R2MED/PMC-Clinical/query.jsonl
+  candidate_file: text-tasks/R2MED/PMC-Clinical/corpus.jsonl
+  qrels_file: text-tasks/R2MED/PMC-Clinical/qrels.jsonl
+text/R2MED/PMC-Treatment:
+  dataset_parser: complex_text_retrieve
+  data_path: text-tasks
+  subset_name: R2MED/PMC-Treatment
+  eval_type: global
+  query_file: text-tasks/R2MED/PMC-Treatment/query.jsonl
+  candidate_file: text-tasks/R2MED/PMC-Treatment/corpus.jsonl
+  qrels_file: text-tasks/R2MED/PMC-Treatment/qrels.jsonl

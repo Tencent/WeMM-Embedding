@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+.Python
+
+# Virtual environments
+.env
+.venv/
+venv/
+env/
+ENV/
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and runtime
+*.log
+core.*
+
+# Eval / experiment outputs (default OUTPUT_DIR=exps/wemm_embedding)
+exps/
+outputs/
+wandb/
+
+# Downloaded datasets and local media
+data/
+datasets/
+*.tar
+*.tar.gz
+*.zip
+
+# Model weights and caches
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+.cache/
+huggingface/
+*.npy
+*.npz
+
+# Test / type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Wheels
+*.whl

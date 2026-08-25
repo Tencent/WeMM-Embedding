@@ -1,0 +1,141 @@
+ViDoRe_arxivqa:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_arxivqa
+    image_root: visdoc-tasks/images/ViDoRe_arxivqa
+    eval_type: global
+ViDoRe_docvqa:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_docvqa
+    image_root: visdoc-tasks/images/ViDoRe_docvqa
+    eval_type: global
+ViDoRe_infovqa:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_infovqa
+    image_root: visdoc-tasks/images/ViDoRe_infovqa
+    eval_type: global
+ViDoRe_tabfquad:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_tabfquad
+    image_root: visdoc-tasks/images/ViDoRe_tabfquad
+    eval_type: global
+ViDoRe_tatdqa:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_tatdqa
+    image_root: visdoc-tasks/images/ViDoRe_tatdqa
+    eval_type: global
+ViDoRe_shiftproject:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_shiftproject
+    image_root: visdoc-tasks/images/ViDoRe_shiftproject
+    eval_type: global
+ViDoRe_syntheticDocQA_artificial_intelligence:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_syntheticDocQA_artificial_intelligence
+    image_root: visdoc-tasks/images/ViDoRe_syntheticDocQA_artificial_intelligence
+    eval_type: global
+ViDoRe_syntheticDocQA_energy:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_syntheticDocQA_energy
+    image_root: visdoc-tasks/images/ViDoRe_syntheticDocQA_energy
+    eval_type: global
+ViDoRe_syntheticDocQA_government_reports:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_syntheticDocQA_government_reports
+    image_root: visdoc-tasks/images/ViDoRe_syntheticDocQA_government_reports
+    eval_type: global
+ViDoRe_syntheticDocQA_healthcare_industry:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_syntheticDocQA_healthcare_industry
+    image_root: visdoc-tasks/images/ViDoRe_syntheticDocQA_healthcare_industry
+    eval_type: global
+
+
+ViDoRe_esg_reports_human_labeled_v2:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_esg_reports_human_labeled_v2
+    image_root: visdoc-tasks/images/esg_reports_human_labeled_v2
+    eval_type: global
+ViDoRe_biomedical_lectures_v2:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_biomedical_lectures_v2
+    image_root: visdoc-tasks/images/biomedical_lectures_v2
+    eval_type: global
+ViDoRe_biomedical_lectures_v2_multilingual:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_biomedical_lectures_v2_multilingual
+    image_root: visdoc-tasks/images/biomedical_lectures_v2_multilingual
+    eval_type: global
+ViDoRe_economics_reports_v2:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_economics_reports_v2
+    image_root: visdoc-tasks/images/economics_reports_v2
+    eval_type: global
+ViDoRe_economics_reports_v2_multilingual:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_economics_reports_v2_multilingual
+    image_root: visdoc-tasks/images/economics_reports_v2_multilingual
+    eval_type: global
+ViDoRe_esg_reports_v2:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_esg_reports_v2
+    image_root: visdoc-tasks/images/esg_reports_v2
+    eval_type: global
+ViDoRe_esg_reports_v2_multilingual:
+    dataset_parser: vidore
+    dataset_name: ViDoRe_esg_reports_v2_multilingual
+    image_root: visdoc-tasks/images/esg_reports_v2_multilingual
+    eval_type: global
+
+
+
+VisRAG_ArxivQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_ArxivQA
+    image_root: visdoc-tasks/images/VisRAG_ArxivQA
+    eval_type: global
+VisRAG_ChartQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_ChartQA
+    image_root: visdoc-tasks/images/VisRAG_ChartQA
+    eval_type: global
+VisRAG_MP-DocVQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_MP-DocVQA
+    image_root: visdoc-tasks/images/VisRAG_MP-DocVQA
+    eval_type: global
+VisRAG_SlideVQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_SlideVQA
+    image_root: visdoc-tasks/images/VisRAG_SlideVQA
+    eval_type: global
+VisRAG_InfoVQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_InfoVQA
+    image_root: visdoc-tasks/images/VisRAG_InfoVQA
+    eval_type: global
+VisRAG_PlotQA:
+    dataset_parser: visrag
+    dataset_name: VisRAG_PlotQA
+    image_root: visdoc-tasks/images/VisRAG_PlotQA
+    eval_type: global
+
+ViDoSeek-page:
+    dataset_parser: vidore
+    dataset_name: ViDoSeek-page
+    image_root: visdoc-tasks/images/ViDoSeek-page
+    eval_type: global
+ViDoSeek-doc:
+    dataset_parser: vidore
+    dataset_name: ViDoSeek-doc
+    image_root: visdoc-tasks/images/ViDoSeek-doc
+    eval_type: global
+MMLongBench-doc:
+    dataset_parser: vidore
+    dataset_name: MMLongBench-doc
+    image_root: visdoc-tasks/images/MMLongBench-doc
+    eval_type: global
+MMLongBench-page:
+    dataset_parser: vidore
+    dataset_name: MMLongBench-page
+    image_root: visdoc-tasks/images/MMLongBench-page
+    eval_type: global

@@ -1,0 +1,26 @@
+# LMEB memory retrieval (auto-discover all subtasks under each dataset root)
+memory/KnowMeBench:
+  dataset_parser: memory_retrieval
+  dataset_name: KnowMeBench
+  data_path: memory-tasks/Episodic/KnowMeBench
+  eval_type: global
+
+memory/REALTALK:
+  dataset_parser: memory_retrieval
+  dataset_name: REALTALK
+  data_path: memory-tasks/Dialogue/REALTALK
+  eval_type: global
+
+memory/PeerQA:
+  dataset_parser: memory_retrieval
+  dataset_name: PeerQA
+  data_path: memory-tasks/Semantic/PeerQA
+  # queries carry per-scene candidate lists (candidates.jsonl); rank within them
+  eval_type: local
+
+memory/DeepPlanning:
+  dataset_parser: memory_retrieval
+  dataset_name: DeepPlanning
+  data_path: memory-tasks/Procedural/DeepPlanning
+  # queries carry per-case candidate lists (candidates.jsonl); rank within them
+  eval_type: local

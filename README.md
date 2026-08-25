@@ -1,0 +1,157 @@
+# WeMM-Embedding
+
+[![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-yellow)](https://huggingface.co/collections/tencent/wemm-embedding)
+[![Technical Report](https://img.shields.io/badge/📄-Technical%20Report-red)](assets/WeMM_Embedding_tech_report.pdf)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
+WeMM-Embedding is a family of universal multimodal embedding models developed by the WeChat Vision team. It maps text, images, videos, visual documents, and interleaved multimodal inputs into a shared embedding space.
+
+## Model Zoo
+
+| Model | Matryoshka dimensions | Hugging Face |
+| --- | --- | --- |
+| WeMM-Embedding-2B | 64, 128, 256, 512, 1024, 2048 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-2B) |
+| WeMM-Embedding-4B | 64, 128, 256, 512, 1024, 2560 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-4B) |
+| WeMM-Embedding-9B | 64, 128, 256, 512, 1024, 2048, 4096 | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-9B) |
+
+All models use last-token pooling at a dedicated `<embedding>` token and return L2-normalized embeddings. Audio input is not supported.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Transformers
+
+```bash
+python examples/transformers_inference.py \
+  --model /path/to/WeMM-Embedding-2B \
+  --image /path/to/image.jpg \
+  --video /path/to/video.mp4 \
+  --dimension 256
+```
+
+The example produces independent text, image, and video embeddings. Omit `--dimension` for the full embedding dimension.
+
+## Sentence Transformers
+
+```bash
+python sentence_transformers_inference.py \
+  --model /path/to/WeMM-Embedding-2B \
+  --image /path/to/image.jpg \
+  --video /path/to/video.mp4 \
+  --dimension 256
+```
+
+The adapter uses `SentenceTransformer.encode()` for text, image, and video inputs. MRL is selected with `--dimension`.
+
+## Serving
+
+Tested versions: vLLM `0.27.0` and SGLang `0.5.9`.
+
+vLLM:
+
+```bash
+MODEL_PATH=/path/to/WeMM-Embedding-2B
+vllm serve "$MODEL_PATH" \
+  --runner pooling \
+  --chat-template "$MODEL_PATH/embedding_chat_template.jinja"
+```
+
+SGLang:
+
+```bash
+MODEL_PATH=/path/to/WeMM-Embedding-2B
+python scripts/patch_sglang_video.py
+python -m sglang.launch_server \
+  --model-path "$MODEL_PATH" \
+  --is-embedding \
+  --enable-precise-embedding-interpolation
+```
+
+Equivalent one-command wrappers are available in `scripts/serve_vllm.sh` and `scripts/serve_sglang.sh`.
+
+## Matryoshka Embeddings
+
+For a supported dimension `d`, truncate the full embedding and normalize it again:
+
+```python
+embedding = torch.nn.functional.normalize(embedding[..., :d], dim=-1)
+```
+
+On MMEB-v2, the 2B model at 256 dimensions retains 98.7% of its full-dimensional image and video performance.
+
+## Evaluation
+
+### MMEB-v2
+
+Results on 78 datasets from Table 1 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). Image and video tasks use Hit@1, while visual-document tasks use NDCG@5. Higher is better.
+
+| Model | Size | AVG | Image | Video | VisDoc |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| VLM2Vec | 2B | 47.8 | 59.7 | 29.0 | 44.0 |
+| GME | 2B | 55.4 | 51.9 | 33.9 | 76.8 |
+| VLM2Vec-V2 | 2B | 59.3 | 64.9 | 34.9 | 69.2 |
+| Qwen3-VL-Embedding | 2B | 73.2 | 75.0 | 61.9 | 79.2 |
+| DME-Small† | 2B | 74.8 | 75.9 | 65.6 | 79.9 |
+| **WeMM-Embedding** | **2B** | **77.9** | **79.6** | **70.8** | **80.7** |
+| **WeMM-Embedding** | **4B** | **79.2** | **80.8** | **72.1** | **82.0** |
+| VLM2Vec | 8B | 53.2 | 65.5 | 34.0 | 49.1 |
+| GME | 8B | 59.2 | 56.0 | 38.6 | 79.3 |
+| Qwen3-VL-Embedding | 8B | 77.8 | 80.1 | 67.1 | 82.4 |
+| DME-Medium† | 9B | 78.4 | 79.8 | 70.8 | 82.0 |
+| **WeMM-Embedding** | **9B** | **80.6** | **81.9** | **74.3** | **83.3** |
+
+† Closed-source leaderboard submission without publicly released model weights or a public inference endpoint.
+
+### MMEB-v3
+
+Results on all 190 tasks from Table 2 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). V3-All includes the 78 MMEB-v2 tasks, 53 text tasks, 47 agent tasks, 11 audio tasks, and MCMR. Unsupported tasks are assigned a score of zero.
+
+| Model | Size | V3-All | Text | Agent | MCMR | Audio |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| VLM2Vec-V2 | 2B | 38.3 | 24.5 | 28.7 | 4.1 | 0.0 |
+| Omni-Embed-Nemotron | 3B | 43.5 | 39.2 | 36.5 | 26.1 | 36.5 |
+| E5-Omni | 3B | 44.6 | 26.7 | 36.9 | 31.9 | 30.8 |
+| Qwen3-VL-Embedding | 2B | 50.9 | 39.2 | 39.3 | 42.0 | 0.0 |
+| **WeMM-Embedding** | **2B** | **56.0** | **45.3** | **45.1** | **42.5** | **0.0** |
+| **WeMM-Embedding** | **4B** | **58.2** | **47.9** | **49.0** | **41.9** | **0.0** |
+| WAVE | 7B | 26.3 | 13.7 | 11.3 | 8.9 | 31.8 |
+| VLM2Vec | 8B | 32.9 | 22.2 | 19.7 | 0.9 | 0.0 |
+| LCO-Embedding-Omni | 7B | 40.6 | 32.4 | 27.8 | 20.0 | 43.2 |
+| GME | 8B | 43.6 | 37.1 | 35.6 | 27.3 | 0.0 |
+| E5-Omni | 7B | 47.1 | 26.9 | 36.7 | 41.1 | 43.0 |
+| Tianmu-Emb-Uni | 8B | 53.3 | 43.6 | 39.4 | 38.8 | 38.9 |
+| Qwen3-VL-Embedding | 8B | 53.5 | 42.5 | 38.4 | 38.0 | 0.0 |
+| **WeMM-Embedding** | **9B** | **59.5** | **48.8** | **51.0** | **49.3** | **0.0** |
+
+Text results use NDCG@5; agent, MCMR, and audio results use Hit@1.
+
+`mmeb_v3_eval/` contains the MMEB-v3 evaluation code used to produce our reported numbers. It is the official [TIGER-AI-Lab/VLM2Vec](https://github.com/TIGER-AI-Lab/VLM2Vec) pipeline with a minimal diff: multi-node multi-GPU inference (`torchrun --nnodes=N`), a `wemm_embedding` backbone implementing our preprocessing and batched inference, dataset instructions aligned with the released model, and 64-frame video sampling. Data download, single-node and multi-node commands are documented in `mmeb_v3_eval/README.md`.
+
+```bash
+cd mmeb_v3_eval
+DATA_ROOT=/path/to/MMEB-V3 bash scripts/download_data.sh
+MODEL_PATH=/path/to/WeMM-Embedding-2B DATA_BASEDIR=/path/to/MMEB-V3 \
+OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
+```
+
+## Citation
+
+```bibtex
+@techreport{wemm_embedding_2026,
+  title       = {WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report},
+  author      = {{WeChat Vision}},
+  institution = {Tencent Inc.},
+  year        = {2026}
+}
+```
+
+## License
+
+Unless otherwise noted, Tencent-authored code in this repository is released under the
+[Apache License 2.0](LICENSE).
+
+Third-party components retain their original licenses and copyright notices. Please review
+the corresponding source files before use.

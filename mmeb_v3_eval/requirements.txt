@@ -1,0 +1,17 @@
+accelerate
+datasets
+huggingface-hub[cli]  # scripts/download_data.sh uses the `hf` CLI
+numpy
+pillow
+pyyaml
+qwen-vl-utils
+torch
+torchvision
+tqdm
+transformers==5.2.0
+
+# Optional:
+#   flash-attn   faster attention; the released numbers use the sdpa fallback
+#   peft         only needed for LoRA checkpoints
+#   decord       only needed to read raw video files; the eval reads frame dumps
+#   torchaudio + soundfile   audio tasks only (not supported by WeMM-Embedding)

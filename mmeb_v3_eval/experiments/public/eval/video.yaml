@@ -1,0 +1,175 @@
+SmthSmthV2:
+    dataset_parser: ssv2
+    dataset_name: SmthSmthV2
+    video_root: video-tasks/videos/video_cls/SSv2
+    frame_root: video-tasks/frames/video_cls/SSv2
+    num_sample_per_subset: 1000
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local
+HMDB51:
+    dataset_parser: video_classification
+    dataset_name: HMDB51
+    video_root: video-tasks/videos/video_cls/HMDB51
+    frame_root: video-tasks/frames/video_cls/HMDB51
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+UCF101:
+    dataset_parser: video_classification
+    dataset_name: UCF101
+    video_root: video-tasks/videos/video_cls/UCF101
+    frame_root: video-tasks/frames/video_cls/UCF101
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+K700:
+    dataset_parser: video_classification
+    dataset_name: Kinetics-700
+    video_root: video-tasks/videos/video_cls/K700
+    frame_root: video-tasks/frames/video_cls/K700
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+Breakfast:
+    dataset_parser: video_classification
+    dataset_name: Breakfast
+    video_root: video-tasks/videos/video_cls/Breakfast
+    frame_root: video-tasks/frames/video_cls/Breakfast
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+
+MSR-VTT:
+    dataset_parser: msrvtt
+    dataset_name: MSR-VTT
+    video_root: video-tasks/videos/video_ret/MSR-VTT/
+    frame_root: video-tasks/frames/video_ret/data/ziyan/video_retrieval/MSR-VTT/frames/
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+MSVD:
+    dataset_parser: msvd
+    dataset_name: MSVD
+    video_root: video-tasks/videos/video_ret/MSVD/
+    frame_root: video-tasks/frames/video_ret/data/ziyan/video_retrieval/MSVD/frames/
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+DiDeMo:
+    dataset_parser: didemo
+    dataset_name: DiDeMo
+    video_root: video-tasks/videos/video_ret/DiDeMo/
+    frame_root: video-tasks/frames/video_ret/data/ziyan/video_retrieval/DiDeMo/frames/
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+YouCook2:
+    dataset_parser: youcook2
+    dataset_name: YouCook2
+    video_root: video-tasks/videos/video_ret/YouCook2/
+    frame_root: video-tasks/frames/video_ret/data/ziyan/video_retrieval/YouCook2/frames/
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+VATEX:
+    dataset_parser: vatex
+    dataset_name: VATEX
+    video_root: video-tasks/videos/video_ret/VATEX/
+    frame_root: video-tasks/frames/video_ret/data/ziyan/video_retrieval/VATEX/frames/
+    num_sample_per_subset: None
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: global
+
+QVHighlight:
+    dataset_parser: moment_retrieval
+    dataset_name: QVHighlight
+    video_root: ""
+    clip_root: ""
+    frame_root: video-tasks/frames/video_mret/QVHighlight
+    num_negative_clips: 9
+    max_video_frames_saved: 64
+    max_clip_frames_saved: 8
+    num_video_frames: 64
+    num_clip_frames: 8
+    eval_type: local
+Charades-STA:
+    dataset_parser: moment_retrieval
+    dataset_name: Charades-STA
+    video_root: ""
+    clip_root: ""
+    frame_root: video-tasks/frames/video_mret/Charades-STA
+    num_negative_clips: 9
+    max_video_frames_saved: 64
+    max_clip_frames_saved: 8
+    num_video_frames: 64
+    num_clip_frames: 8
+    eval_type: local
+MomentSeeker:
+    dataset_parser: momentseeker
+    dataset_name: MomentSeeker
+    video_root: ""
+    clip_root: ""
+    frame_root: video-tasks/frames/video_mret/MomentSeeker
+    num_negative_clips: 9
+    num_video_frames: 8
+    eval_type: local
+# momentseeker_1k8:
+#     dataset_parser: momentseeker
+#     dataset_name: MomentSeeker_1k8
+#     video_root: ""
+#     clip_root: ""
+#     frame_root: video-tasks/frames/video_mret/MomentSeeker
+#     num_negative_clips: 9
+#     num_video_frames: 8
+#     eval_type: local
+
+Video-MME:
+    dataset_parser: videomme
+    dataset_name: Video-MME
+    video_root: video-tasks/videos/video_qa/Video-MME
+    frame_root: video-tasks/frames/video_qa/video_qa/Video-MME
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local
+NExTQA:
+    dataset_parser: nextqa
+    dataset_name: NExTQA
+    video_root: video-tasks/videos/video_qa/NExTQA
+    frame_root: video-tasks/frames/video_qa/video_qa/NExTQA
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local
+EgoSchema:
+    dataset_parser: egoschema
+    dataset_name: EgoSchema
+    video_root: video-tasks/videos/video_qa/EgoSchema
+    frame_root: video-tasks/frames/video_qa/video_qa/egoschema
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local
+MVBench:
+    dataset_parser: mvbench
+    dataset_name: MVBench
+    video_root: video-tasks/videos/video_qa/MVBench
+    frame_root: video-tasks/frames/video_qa/video_qa/MVBench
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local
+ActivityNetQA:
+    dataset_parser: activitynetqa
+    dataset_name: ActivityNetQA
+    video_root: video-tasks/videos/video_qa/ActivityNetQA
+    frame_root: video-tasks/frames/video_qa/video_qa/ActivityNetQA
+    max_frames_saved: 64
+    num_frames: 64
+    eval_type: local

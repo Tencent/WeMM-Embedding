@@ -1,0 +1,331 @@
+# ToolDe evaluation configuration
+# Text-to-text tool-document retrieval task
+# 
+# Data structure notes:
+# - Queries are split into three categories: web, code, customized; each has multiple subtasks
+#   e.g., web/apigen, code/xxx, customized/xxx
+# - Candidates are also split into the same three categories: web, code, customized
+# - Retrieval is category-constrained during evaluation:
+#   web queries are retrieved only against web candidates
+
+# Web category tasks
+
+toolde/web/apibank:
+  dataset_parser: toolde
+  subset_name: web/apibank
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/apibank/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/apigen:
+  dataset_parser: toolde
+  subset_name: web/apigen
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/apigen/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/mnms:
+  dataset_parser: toolde
+  subset_name: web/mnms
+  query_file: tool-tasks/ToolDe-Queries/web/mnms/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/reversechain:
+  dataset_parser: toolde
+  subset_name: web/reversechain
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/reversechain/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/rotbench:
+  dataset_parser: toolde
+  subset_name: web/rotbench
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/rotbench/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/t-eval-dialog:
+  dataset_parser: toolde
+  subset_name: web/t-eval-dialog
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/t-eval-dialog/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/t-eval-step:
+  dataset_parser: toolde
+  subset_name: web/t-eval-step
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/t-eval-step/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/taskbench-daily:
+  dataset_parser: toolde
+  subset_name: web/taskbench-daily
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/taskbench-daily/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/toolace:
+  dataset_parser: toolde
+  subset_name: web/toolace
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/toolace/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/toolbench:
+  dataset_parser: toolde
+  subset_name: web/toolbench
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/toolbench/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/toolemu:
+  dataset_parser: toolde
+  subset_name: web/toolemu
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/toolemu/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/tooleyes:
+  dataset_parser: toolde
+  subset_name: web/tooleyes
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/tooleyes/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/toollens:
+  dataset_parser: toolde
+  subset_name: web/toollens
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/toollens/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/ultratool:
+  dataset_parser: toolde
+  subset_name: web/ultratool
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/ultratool/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/autotools-food:
+  dataset_parser: toolde
+  subset_name: web/autotools-food
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/autotools-food/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/autotools-music:
+  dataset_parser: toolde
+  subset_name: web/autotools-music
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/autotools-music/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/autotools-weather:
+  dataset_parser: toolde
+  subset_name: web/autotools-weather
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/autotools-weather/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/restgpt-spotify:
+  dataset_parser: toolde
+  subset_name: web/restgpt-spotify
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/restgpt-spotify/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/web/restgpt-tmdb:
+  dataset_parser: toolde
+  subset_name: web/restgpt-tmdb
+  query_file: 
+    tool-tasks/ToolDe-Queries/web/restgpt-tmdb/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/web/tools-00000-of-00001.parquet
+  eval_type: global
+
+
+# Code
+
+toolde/code/craft-math-algebra:
+  dataset_parser: toolde
+  subset_name: code/craft-math-algebra
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/craft-math-algebra/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/craft-tabmwp:
+  dataset_parser: toolde
+  subset_name: code/craft-tabmwp
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/craft-tabmwp/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/craft-vqa:
+  dataset_parser: toolde
+  subset_name: code/craft-vqa
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/craft-vqa/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/gorilla-huggingface:
+  dataset_parser: toolde
+  subset_name: code/gorilla-huggingface
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/gorilla-huggingface/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/gorilla-pytorch:
+  dataset_parser: toolde
+  subset_name: code/gorilla-pytorch
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/gorilla-pytorch/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/gorilla-tensor:
+  dataset_parser: toolde
+  subset_name: code/gorilla-tensor
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/gorilla-tensor/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/code/toolink:
+  dataset_parser: toolde
+  subset_name: code/toolink
+  query_file: 
+    tool-tasks/ToolDe-Queries/code/toolink/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/code/tools-00000-of-00001.parquet
+  eval_type: global
+
+
+# Customized
+
+toolde/customized/appbench:
+  dataset_parser: toolde
+  subset_name: customized/appbench
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/appbench/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/gpt4tools:
+  dataset_parser: toolde
+  subset_name: customized/gpt4tools
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/gpt4tools/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/gta:
+  dataset_parser: toolde
+  subset_name: customized/gta
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/gta/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/taskbench-huggingface:
+  dataset_parser: toolde
+  subset_name: customized/taskbench-huggingface
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/taskbench-huggingface/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/taskbench-multimedia:
+  dataset_parser: toolde
+  subset_name: customized/taskbench-multimedia
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/taskbench-multimedia/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/metatool:
+  dataset_parser: toolde
+  subset_name: customized/metatool
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/metatool/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/tool-be-honest:
+  dataset_parser: toolde
+  subset_name: customized/tool-be-honest
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/tool-be-honest/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/toolalpaca:
+  dataset_parser: toolde
+  subset_name: customized/toolalpaca
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/toolalpaca/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
+
+toolde/customized/toolbench-sam:
+  dataset_parser: toolde
+  subset_name: customized/toolbench-sam
+  query_file: 
+    tool-tasks/ToolDe-Queries/customized/toolbench-sam/queries-00000-of-00001.parquet
+  candidate_file: 
+    tool-tasks/ToolDe-Candidates/customized/tools-00000-of-00001.parquet
+  eval_type: global
