@@ -53,14 +53,14 @@ The example produces independent text, image, and video embeddings. Omit `--dime
 ## Sentence Transformers
 
 ```bash
-python sentence_transformers_inference.py \
+python examples/sentence_transformers_inference.py \
   --model /path/to/WeMM-Embedding-2B \
   --image /path/to/image.jpg \
   --video /path/to/video.mp4 \
   --dimension 2048
 ```
 
-The adapter uses `SentenceTransformer.encode()` for text, image, and video inputs. MRL is selected with `--dimension`.
+`SentenceTransformer` loads the model directly, so a Hugging Face model id such as `tencent/WeMM-Embedding-2B` also works in place of a local path. Text, image, and video inputs go through `SentenceTransformer.encode()`, and MRL is selected with `--dimension`.
 
 ## Serving
 
