@@ -4,7 +4,7 @@
   <a href="https://huggingface.co/collections/tencent/wemm-embedding">
     <img src="https://img.shields.io/badge/🤗-Hugging%20Face-yellow" alt="Hugging Face">
   </a>
-  <a href="assets/WeMM_Embedding_tech_report.pdf">
+  <a href="https://arxiv.org/abs/2608.24053">
     <img src="https://img.shields.io/badge/📄-Technical%20Report-red" alt="Technical Report">
   </a>
   <a href="LICENSE">
@@ -154,13 +154,16 @@ OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
 ```
 
 ## Citation
-
+If you find this repository useful, please consider giving a star ⭐ and citation
 ```bibtex
-@techreport{wemm_embedding_2026,
-  title       = {WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report},
-  author      = {{WeChat Vision}},
-  institution = {Tencent Inc.},
-  year        = {2026}
+@article{wemm-embedding,
+      title={WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report}, 
+      author={Junjie Zhou and Ke Mei and Lei Li and Tianyi Wang and Fengyun Rao and Jing Lyu},
+      year={2026},
+      eprint={2608.24053},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2608.24053}, 
 }
 ```
 
