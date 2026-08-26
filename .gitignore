@@ -34,8 +34,10 @@ outputs/
 wandb/
 
 # Downloaded datasets and local media
-data/
-datasets/
+/data/
+/datasets/
+/mmeb_v3_eval/data/
+/mmeb_v3_eval/datasets/
 *.tar
 *.tar.gz
 *.zip
