@@ -1,7 +1,7 @@
 <h1 align="center">WeMM-Embedding: WeChat Multi-Modal Embedding</h1>
 
 <p align="center">
-  <b>English</b> | <a href="./README_zh.md">中文</a>
+  <a href="./README.md">English</a> | <b>中文</b>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
   </a>
 </p>
 
-WeMM-Embedding is a family of universal multimodal embedding models developed by the WeChat Vision team. It provides unified representations for text, images, videos, visual documents, and interleaved multimodal inputs, achieving state-of-the-art performance across multiple benchmarks covering diverse tasks and domains.
+WeMM-Embedding 是由微信视觉团队（WeChat Vision）研发的通用多模态 Embedding 模型系列。它为文本、图像、视频、视觉文档以及交错多模态输入提供统一表示，并在覆盖多种任务与领域的多个评测基准上取得了领先性能。
 
 <p align="center">
   <a href="assets/performance-overview.pdf">
@@ -24,25 +24,26 @@ WeMM-Embedding is a family of universal multimodal embedding models developed by
   </a>
 </p>
 
-## Model Zoo
+## 模型库
 
-| Model | Matryoshka dimensions | Hugging Face |
+| 模型 | Matryoshka 维度 | Hugging Face |
 | --- | --- | --- |
 | WeMM-Embedding-2B | `64, 128, 256, 512, 1024, 2048` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-2B) |
 | WeMM-Embedding-4B | `64, 128, 256, 512, 1024, 2560` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-4B) |
 | WeMM-Embedding-9B | `64, 128, 256, 512, 1024, 2048, 4096` | [🤗 Link](https://huggingface.co/tencent/WeMM-Embedding-9B) |
 
-All models support text, images, videos, visual documents, and interleaved multimodal inputs. Embeddings are obtained from the last-layer hidden state at the dedicated `<embedding>` token position, followed by L2 normalization. Audio input is not currently supported.
+所有模型均支持文本、图像、视频、视觉文档以及交错多模态输入。Embedding 取自专用 `<embedding>` token 位置的最后一层 hidden state，并经过 L2 归一化。当前暂不支持音频输入。
 
 
-## Installation
+## 安装
 
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Transformers
-We recommend using `transformers==5.2.0` for inference and reproducibility, as newer versions may differ in preprocessing behavior.
+
+推理与复现建议使用 `transformers==5.2.0`，更新版本可能在预处理行为上有所差异。
 
 ```bash
 python examples/transformers_inference.py \
@@ -52,7 +53,7 @@ python examples/transformers_inference.py \
   --dimension 2048
 ```
 
-The example produces independent text, image, and video embeddings. Omit `--dimension` for the full embedding dimension.
+该示例会分别生成文本、图像和视频的独立 Embedding。省略 `--dimension` 则使用完整 Embedding 维度。
 
 ## Sentence Transformers
 
@@ -64,13 +65,13 @@ python examples/sentence_transformers_inference.py \
   --dimension 2048
 ```
 
-`SentenceTransformer` loads the model directly, so a Hugging Face model id such as `tencent/WeMM-Embedding-2B` also works in place of a local path. Text, image, and video inputs go through `SentenceTransformer.encode()`, and MRL is selected with `--dimension`.
+`SentenceTransformer` 可直接加载模型，因此除本地路径外，也可使用 Hugging Face 模型 id（例如 `tencent/WeMM-Embedding-2B`）。文本、图像和视频输入均通过 `SentenceTransformer.encode()` 处理，MRL 维度由 `--dimension` 指定。
 
-## Serving
+## 服务部署
 
-Tested versions: vLLM `0.27.0` and SGLang `0.5.9`.
+已验证版本：vLLM `0.27.0` 与 SGLang `0.5.9`。
 
-vLLM:
+vLLM：
 
 ```bash
 MODEL_PATH=/path/to/WeMM-Embedding-2B
@@ -79,7 +80,7 @@ vllm serve "$MODEL_PATH" \
   --chat-template "$MODEL_PATH/embedding_chat_template.jinja"
 ```
 
-SGLang:
+SGLang：
 
 ```bash
 MODEL_PATH=/path/to/WeMM-Embedding-2B
@@ -90,23 +91,23 @@ python -m sglang.launch_server \
   --enable-precise-embedding-interpolation
 ```
 
-Equivalent one-command wrappers are available in `scripts/serve_vllm.sh` and `scripts/serve_sglang.sh`.
+也可使用等价的一键脚本：`scripts/serve_vllm.sh` 与 `scripts/serve_sglang.sh`。
 
-## Matryoshka Embeddings
+## Matryoshka Embedding
 
-For a supported dimension `d`, truncate the full embedding and normalize it again:
+对于支持的维度 `d`，截取完整 Embedding 后重新归一化：
 
 ```python
 embedding = torch.nn.functional.normalize(embedding[..., :d], dim=-1)
 ```
 
-On MMEB-v2, the 2B model at 256 dimensions retains 98.7% of its full-dimensional image and video performance.
+在 MMEB-v2 上，2B 模型在 256 维时仍可保留完整维度图像与视频性能的 98.7%。
 
-## Evaluation
+## 评测
 
 ### MMEB-v2
 
-Results on 78 datasets from Table 1 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). Image and video tasks use Hit@1, while visual-document tasks use NDCG@5. Higher is better.
+结果来自[技术报告](assets/WeMM_Embedding_tech_report.pdf) Table 1，覆盖 78 个数据集。图像与视频任务使用 Hit@1，视觉文档任务使用 NDCG@5。分数越高越好。
 
 | Model | Size | AVG | Image | Video | VisDoc |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -123,11 +124,11 @@ Results on 78 datasets from Table 1 of the [technical report](assets/WeMM_Embedd
 | DME-Medium† | 9B | 78.4 | 79.8 | 70.8 | 82.0 |
 | **WeMM-Embedding** | **9B** | **80.6** | **81.9** | **74.3** | **83.3** |
 
-† Closed-source leaderboard submission without publicly released model weights or a public inference endpoint.
+† 闭源榜单提交，未公开发布模型权重或公开推理接口。
 
 ### MMEB-v3
 
-Results on all 190 tasks from Table 2 of the [technical report](assets/WeMM_Embedding_tech_report.pdf). V3-All includes the 78 MMEB-v2 tasks, 53 text tasks, 47 agent tasks, 11 audio tasks, and MCMR. Unsupported tasks are assigned a score of zero.
+结果来自[技术报告](assets/WeMM_Embedding_tech_report.pdf) Table 2，覆盖全部 190 个任务。V3-All 包含 78 个 MMEB-v2 任务、53 个文本任务、47 个 agent 任务、11 个音频任务以及 MCMR。不支持的任务记为零分。
 
 | Model | Size | V3-All | Text | Agent | MCMR | Audio |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -146,9 +147,9 @@ Results on all 190 tasks from Table 2 of the [technical report](assets/WeMM_Embe
 | Qwen3-VL-Embedding | 8B | 53.5 | 42.5 | 38.4 | 38.0 | 0.0 |
 | **WeMM-Embedding** | **9B** | **59.5** | **48.8** | **51.0** | **49.3** | **0.0** |
 
-Text results use NDCG@5; agent, MCMR, and audio results use Hit@1.
+文本任务使用 NDCG@5；agent、MCMR 与音频任务使用 Hit@1。
 
-`mmeb_v3_eval/` contains the MMEB-v3 evaluation code used to produce our reported numbers. It is the official [TIGER-AI-Lab/VLM2Vec](https://github.com/TIGER-AI-Lab/VLM2Vec) pipeline with a minimal diff: multi-node multi-GPU inference (`torchrun --nnodes=N`), a `wemm_embedding` backbone implementing our preprocessing and batched inference, dataset instructions aligned with the released model, and 64-frame video sampling. Data download, single-node and multi-node commands are documented in `mmeb_v3_eval/README.md`.
+`mmeb_v3_eval/` 包含用于产出报告结果的 MMEB-v3 评测代码。它基于官方 [TIGER-AI-Lab/VLM2Vec](https://github.com/TIGER-AI-Lab/VLM2Vec) 流水线，仅做最小改动：多机多卡推理（`torchrun --nnodes=N`）、实现我们预处理与 batched inference 的 `wemm_embedding` backbone、与已发布模型对齐的数据集 instruction，以及 64 帧视频采样。数据下载、单机与多机命令见 `mmeb_v3_eval/README.md`。
 
 ```bash
 cd mmeb_v3_eval
@@ -157,8 +158,9 @@ MODEL_PATH=/path/to/WeMM-Embedding-2B DATA_BASEDIR=/path/to/MMEB-V3 \
 OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
 ```
 
-## Citation
-If you find this repository useful, please consider giving a star ⭐ and citation
+## 引用
+
+如果本仓库对你有帮助，欢迎点亮 ⭐ 并引用：
 ```bibtex
 @article{wemm-embedding,
       title={WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report}, 
@@ -171,10 +173,8 @@ If you find this repository useful, please consider giving a star ⭐ and citati
 }
 ```
 
-## License
+## 许可证
 
-Unless otherwise noted, Tencent-authored code in this repository is released under the
-[Apache License 2.0](LICENSE).
+除非另有说明，本仓库中由腾讯撰写的代码以 [Apache License 2.0](LICENSE) 发布。
 
-Third-party components retain their original licenses and copyright notices. Please review
-the corresponding source files before use.
+第三方组件保留其原始许可证与版权声明。使用前请查阅相应源文件。
