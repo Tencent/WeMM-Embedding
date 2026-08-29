@@ -158,7 +158,7 @@ OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
 ```
 
 ## Citation
-If you find this repository useful, please consider giving a star ⭐ and citation
+If you find this repository useful, please consider giving a star ⭐ and a citation
 ```bibtex
 @article{wemm-embedding,
       title={WeMM-Embedding: WeChat Multi-Modal Embedding Technical Report}, 
