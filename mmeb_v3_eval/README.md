@@ -107,7 +107,7 @@ datasets are skipped on re-run (embedding pickles are reused).
 ## Notes & limitations
 
 - **Audio tasks are not supported** (WeMM-Embedding has no audio tower). The
-  default `MODALITIES` in the run scripts therefore excludes `audio`.
+  default `MODALITIES` in the run scripts therefore exclude `audio`.
 - `<embedding>` token: appended automatically by the model-side chat
   template / tokenizer post-processor — do not insert it manually.
 - Video inputs follow the WeMM frame-bundle convention: `video_grid_thw` is
