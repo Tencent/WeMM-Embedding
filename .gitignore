@@ -33,9 +33,9 @@ exps/
 outputs/
 wandb/
 
-# Downloaded datasets and local media
-data/
-datasets/
+# Downloaded datasets at repo root (not nested source dirs named data/)
+/data/
+/datasets/
 *.tar
 *.tar.gz
 *.zip
