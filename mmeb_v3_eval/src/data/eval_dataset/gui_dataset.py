@@ -24,18 +24,17 @@ def process_multi_images(image_basedir, image_paths) -> List[str | None]:
         except (ValueError, SyntaxError):
             image_paths = [image_paths]
 
+    # GUI trajectory prompts carry exactly one image placeholder per entry of
+    # image_paths, and repeated screenshots are meaningful (an action such as
+    # typing into a field leaves the observation unchanged). Every entry must
+    # therefore be kept: dropping repeats shifts the surviving screenshots onto
+    # the wrong "Observation N" step and leaves the trailing steps with no
+    # screenshot at all.
     img_path_list = []
-    seen = set()
     for image_path in image_paths:
         if not image_path:
             img_path_list.append("")
-        elif image_path in seen:
-            # Some GUI trajectory samples reference the same screenshot several
-            # times; keep only the first occurrence so repeated references do
-            # not shift the image-to-placeholder alignment.
-            continue
         else:
-            seen.add(image_path)
             img_path_list.append(os.path.join(image_basedir, image_path))
 
     if len(img_path_list) == 0:
