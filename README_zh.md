@@ -44,13 +44,80 @@ WeMM-Embedding 是由微信视觉团队（WeChat Vision）研发的通用多模�
 pip install -r requirements.txt
 ```
 
+## 快速开始
+
+下面的代码片段完全独立：不依赖本仓库的任何代码或文件，图片也通过 URL 加载。只需安装依赖、将代码保存为 `demo.py` 并执行 `python demo.py`：
+
+```bash
+pip install torch transformers==5.2.0 "qwen-vl-utils==0.0.14"
+```
+
+```python
+import torch
+import torch.nn.functional as F
+from qwen_vl_utils import process_vision_info
+from transformers import AutoModel, AutoProcessor
+
+MODEL_ID = "tencent/WeMM-Embedding-2B"
+IMAGE_URL = "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/pipeline-cat-chonk.jpeg"
+
+processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
+model = AutoModel.from_pretrained(
+    MODEL_ID, trust_remote_code=True, dtype=torch.bfloat16, device_map="cuda"
+)
+model.eval()
+
+
+def encode(content: list[dict]) -> torch.Tensor:
+    messages = [{"role": "user", "content": content}]
+    text = processor.apply_chat_template(
+        messages, tokenize=False, add_generation_prompt=False
+    )
+    images, videos, video_kwargs = process_vision_info(
+        messages,
+        image_patch_size=16,
+        return_video_kwargs=True,
+        return_video_metadata=True,
+    )
+    if videos is not None:
+        videos, video_metadata = zip(*videos)
+        videos, video_metadata = list(videos), list(video_metadata)
+    else:
+        video_metadata = None
+    inputs = processor(
+        text=text,
+        images=images,
+        videos=videos,
+        video_metadata=video_metadata,
+        return_tensors="pt",
+        **video_kwargs,
+    ).to("cuda")
+    with torch.inference_mode():
+        return F.normalize(model.embedding(**inputs).float(), dim=-1)
+
+
+image_embedding = encode([{"type": "image", "image": IMAGE_URL}])
+texts = ["A chubby Pallas's cat walking in the snow.", "A dog is running on a beach."]
+text_embeddings = torch.cat(
+    [encode([{"type": "text", "text": text}]) for text in texts]
+)
+
+print("image embedding shape:", tuple(image_embedding.shape))  # (1, 2048)
+print(
+    "text-image similarities:",
+    (text_embeddings @ image_embedding.T).flatten().tolist(),
+)
+```
+
+其中第一条文本与图片的相似度应高于第二条。
+
 ## Transformers
 
 推理与复现建议使用 `transformers==5.2.0`，更新版本可能在预处理行为上有所差异。
 
 ```bash
 python examples/transformers_inference.py \
-  --model /path/to/WeMM-Embedding-2B \
+  --model tencent/WeMM-Embedding-2B \
   --image /path/to/image.jpg \
   --video /path/to/video.mp4 \
   --dimension 2048
@@ -62,7 +129,7 @@ python examples/transformers_inference.py \
 
 ```bash
 python examples/sentence_transformers_inference.py \
-  --model /path/to/WeMM-Embedding-2B \
+  --model tencent/WeMM-Embedding-2B \
   --image /path/to/image.jpg \
   --video /path/to/video.mp4 \
   --dimension 2048
@@ -77,16 +144,17 @@ python examples/sentence_transformers_inference.py \
 vLLM：
 
 ```bash
-MODEL_PATH=/path/to/WeMM-Embedding-2B
+MODEL_PATH=tencent/WeMM-Embedding-2B
+CHAT_TEMPLATE=$(hf download "$MODEL_PATH" embedding_chat_template.jinja)
 vllm serve "$MODEL_PATH" \
   --runner pooling \
-  --chat-template "$MODEL_PATH/embedding_chat_template.jinja"
+  --chat-template "$CHAT_TEMPLATE"
 ```
 
 SGLang：
 
 ```bash
-MODEL_PATH=/path/to/WeMM-Embedding-2B
+MODEL_PATH=tencent/WeMM-Embedding-2B
 python scripts/patch_sglang_video.py
 python -m sglang.launch_server \
   --model-path "$MODEL_PATH" \
@@ -159,7 +227,7 @@ embedding = torch.nn.functional.normalize(embedding[..., :d], dim=-1)
 ```bash
 cd mmeb_v3_eval
 DATA_ROOT=/path/to/MMEB-V3 bash scripts/download_data.sh
-MODEL_PATH=/path/to/WeMM-Embedding-2B DATA_BASEDIR=/path/to/MMEB-V3 \
+MODEL_PATH=tencent/WeMM-Embedding-2B DATA_BASEDIR=/path/to/MMEB-V3 \
 OUTPUT_DIR=exps/wemm_embedding bash scripts/run_eval.sh
 ```
 
